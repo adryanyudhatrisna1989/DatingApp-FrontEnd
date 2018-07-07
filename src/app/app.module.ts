@@ -1,6 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { BsDropdownModule } from "ngx-bootstrap";
+import { BsDropdownModule, TabsModule } from "ngx-bootstrap";
+import { NgxGalleryModule } from "ngx-gallery";
 
 import { AppComponent } from "./app.component";
 import { HttpModule } from "@angular/http";
@@ -18,6 +19,10 @@ import { appRoutes } from "./routes";
 import { AuthGuard } from "./_guard/auth.guard";
 import { UserService } from "./_services/user.service";
 import { MemberCardComponent } from "./members/member-card/member-card.component";
+import { AuthModule } from "./auth/auth.module";
+import { MemberDetailComponent } from "./members/member-detail/member-detail.component";
+import { MemberDetailResolver } from "./_resolvers/member-detail.resolver";
+import { MemberListResolver } from "./_resolvers/member-list.resolver";
 
 @NgModule({
   declarations: [
@@ -28,16 +33,27 @@ import { MemberCardComponent } from "./members/member-card/member-card.component
     MemberListComponent,
     ListsComponent,
     MessagesComponent,
-    MemberCardComponent
+    MemberCardComponent,
+    MemberDetailComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AuthModule,
+    TabsModule.forRoot(),
+    NgxGalleryModule
   ],
-  providers: [AuthService, AlertifyService, AuthGuard, UserService],
+  providers: [
+    AuthService,
+    AlertifyService,
+    AuthGuard,
+    UserService,
+    MemberDetailResolver,
+    MemberListResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
