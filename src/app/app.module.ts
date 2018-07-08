@@ -5,7 +5,7 @@ import { NgxGalleryModule } from "ngx-gallery";
 
 import { AppComponent } from "./app.component";
 import { HttpModule } from "@angular/http";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NavComponent } from "./nav/nav.component";
 import { AuthService } from "./_services/auth.service";
 import { HomeComponent } from "./home/home.component";
@@ -28,6 +28,7 @@ import { MemberEditResolver } from "./_resolvers/member-edit.resolver";
 import { PreventUnsavedChanges } from "./_guard/prevent-unsaved-changes.guard";
 import { PhotoEditorComponent } from "./members/photo-editor/photo-editor.component";
 import { FileUploadModule } from "ng2-file-upload";
+import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import { FileUploadModule } from "ng2-file-upload";
     AuthModule,
     TabsModule.forRoot(),
     NgxGalleryModule,
-    FileUploadModule
+    FileUploadModule,
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     AuthService,
