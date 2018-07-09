@@ -35,6 +35,7 @@ import { PhotoEditorComponent } from "./members/photo-editor/photo-editor.compon
 import { FileUploadModule } from "ng2-file-upload";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TimeAgoPipe } from "time-ago-pipe";
+import { ListsResolver } from "./_resolvers/lists.resolver";
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { TimeAgoPipe } from "time-ago-pipe";
     MemberDetailResolver,
     MemberListResolver,
     MemberEditResolver,
-    PreventUnsavedChanges
+    PreventUnsavedChanges,
+    ListsResolver
   ],
   bootstrap: [AppComponent]
 })
