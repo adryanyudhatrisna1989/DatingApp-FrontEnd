@@ -14,7 +14,7 @@
           </button>
         </li>
         <li>
-          <button class="btn btn-light">
+          <button class="btn btn-light" [routerLink]="['/members/', user.id]" [queryParams]="{tab: '3'}" routerLinkActive="router-link-active">
             <i class="fa fa-envelope"></i>
           </button>
         </li>
